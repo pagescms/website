@@ -17,6 +17,8 @@ Collaborators can:
 - edit content,
 - edit media.
 
+Content operations (`create`, `rename`, `delete`) still follow the repository configuration for each `content` entry. See [`content.operations`](/docs/configuration/content/#operations).
+
 ## What collaborators cannot do
 
 Collaborators cannot:
