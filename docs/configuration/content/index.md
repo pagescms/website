@@ -35,35 +35,12 @@ Key | Description
 <code class="text-[var(--prism-keyword)]">subfolders</code> | Values: `true`, `false`. Enables or disables nested folders in collections.
 <code class="text-[var(--prism-keyword)]">list</code> | Repeat a field as an array, or for `type: file`, store the whole file as a top-level array. [Read more about `list`](/docs/configuration/content/list/)
 <code class="text-[var(--prism-keyword)]">view</code> | Collection list settings for fields, sorting, search, and tree mode (e.g. `{ primary: "title", sort: "date", order: "desc" }`). [Read more about `view`](/docs/configuration/content/view/)
-<code class="text-[var(--prism-keyword)]">operations</code> | Per-entry create/rename/delete controls (e.g. `{ delete: false }`). [See `operations`](#operations).
+<code class="text-[var(--prism-keyword)]">operations</code> | Per-entry create/rename/delete controls (e.g. `{ delete: false }`). [Read more about `operations`](/docs/configuration/content/operations/).
 <code class="text-[var(--prism-keyword)]">commit</code> | Per-entry commit settings (e.g. `{ identity: "user" }`). [See `settings`](/docs/configuration/settings/).
 <code class="text-[var(--prism-keyword)]">actions</code> | Adds collection or file action buttons (e.g. `[{ name: "preview", label: "Preview", workflow: "pages-cms-file-action.yml" }]`). [See `actions`](/docs/configuration/actions/).
 <code class="text-[var(--prism-keyword)]">items</code> | Child entries inside a `group` (e.g. nested `group`, `collection`, or `file` entries).
 
 <span class="text-sm text-muted-foreground">*: Required</span>
-
-## Operations
-
-Use `operations` to allow or block create/rename/delete in the UI for a specific `content` entry.
-
-```yaml
-operations:
-  create: true
-  rename: false
-  delete: true
-```
-
-Defaults depend on `type`:
-
-Type | create | rename | delete
---- | --- | --- | ---
-`collection` | `true` | `true` | `true`
-`file` | `true` | `false` | `true`
-
-Notes:
-
-- `settings` (`.pages.yml`) are separate from `content`; deleting settings is disabled by default.
-- Any key can be set to `false` to block that operation for the entry.
 
 ## Examples
 
@@ -100,8 +77,6 @@ content:
     label: Site settings
     type: file
     path: data/site.yml
-    operations:
-      delete: false
     fields:
       - name: title
         type: string
